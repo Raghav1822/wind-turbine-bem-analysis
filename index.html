@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wind Turbine BEM Analysis</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Renewable Energy Portfolio Project</p>
+      <h1>Wind Turbine Blade Analysis</h1>
+    </header>
+    <section class="dashboard">
+      <aside class="panel controls">
+        <h2>Design parameters</h2>
+        <label>Rotor radius <output id="radiusOut">45</output> m</label>
+        <input id="radius" type="range" min="20" max="80" value="45" />
+        <label>Wind speed <output id="windOut">10</output> m/s</label>
+        <input id="wind" type="range" min="4" max="20" value="10" />
+        <label>Tip-speed ratio <output id="tsrOut">7.0</output></label>
+        <input id="tsr" type="range" min="3" max="12" step="0.1" value="7" />
+        <label>Pitch angle <output id="pitchOut">0</output>°</label>
+        <input id="pitch" type="range" min="-5" max="20" step="0.5" value="0" />
+        <label>Blade count <output id="bladesOut">3</output></label>
+        <input id="blades" type="range" min="2" max="5" value="3" />
+
+        <div class="metric-grid">
+          <article><span>Power</span><strong id="power">--</strong></article>
+          <article><span>Coefficient</span><strong id="cp">--</strong></article>
+          <article><span>Thrust</span><strong id="thrust">--</strong></article>
+          <article><span>Tip loss</span><strong id="tipLoss">--</strong></article>
+        </div>
+      </aside>
+      <section class="panel results">
+        <div class="tabs">
+          <button id="mode2" class="active">2 blades</button>
+          <button id="mode3">3 blades</button>
+        </div>
+        <canvas id="bemCanvas" width="860" height="520" aria-label="Wind turbine blade analysis chart"></canvas>
+        <div class="legend"><span><i class="dot current"></i>Current</span><span><i class="dot alternate"></i>2-blade comparison</span></div>
+      </section>
+    </section>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
